@@ -409,20 +409,6 @@ blur(24px): Это функция размытия. В данном случае
   background-color: var(--container-color);
 }
 
-.skills__description {
-  margin-bottom: 32px;
-}
-
-.tab__taitles {
-  display: flex;
-  justify-content: space-between;
-  gap: 130px;
-}
-
-.about__link {
-  color: var(--first-color);
-}
-
 .skills__container {
   padding-bottom: 32px;
   row-gap: 56px;
@@ -430,6 +416,19 @@ blur(24px): Это функция размытия. В данном случае
 
 .skills__data {
   text-align: center;
+}
+
+.skills__description {
+  margin-bottom: 32px;
+}
+
+.skills__content {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about__link {
+  color: var(--first-color);
 }
 
 .about__item:not(:last-child) {
