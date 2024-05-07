@@ -1,0 +1,526 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  /* 
+      Change favorite color
+      Default: hsl(162, 100%, 40%)
+      Orange: hsl(14, 100%, 65%) - Blue: hsl(210, 100%, 70%)
+      Pink: hsl(356, 100%, 75%) - Purple: hsl(250, 100%, 75%)
+      Havelock Blue Color: hsl(231, 44%, 56%)
+
+      For more colors visit: https://colors.dopely.top/color-pedia
+      -> Choose any color 
+      -> click on tab (Color Conversion)
+      -> Copy the color mode (HSL)
+  */
+
+  --hue: 210; /* 162 */
+  --first-color: hsl(var(--hue), 100%, 70%); /* hsl(var(--hue), 100%, 40%) */
+  --first-color-alt: hsl(var(--hue), 56%, 35%);
+  --title-color: hsl(228, 8%, 95%);
+  --text-color: hsl(228, 8%, 65%);
+  --body-color: hsl(228, 15%, 20%);
+  --container-color: hsl(228, 15%, 15%);
+  --main-color: #00abf0;
+  --bg-color: #081b29;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2rem;
+  --bigger-font-size: 1.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --bigger-font-size: 2rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input,
+textarea,
+button,
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 24px; /*  1.5rem  */
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 2rem;
+}
+
+.section__title,
+.section__subtitle {
+  text-align: center;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.section__subtitle span {
+  color: var(--first-color);
+}
+
+.main {
+  overflow: hidden; /* For animation ScrollReveal */
+}
+
+/*=============== HEADER & NAV ===============*/
+
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: var(--container-color);
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}
+
+.nav__toggle,
+.nav__close {
+  display: flex;
+  font-size: 20px; /* 1.25rem */
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+/* Navigation for mobile devices */
+
+@media screen and (max-width: 1023px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: hsla(0, 0%, 10%, 0.3);
+    width: 75%;
+    height: 100%;
+    padding: 72px 0 0 48px; /* 4.5rem 0 0 3rem */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /* For safari */
+    transition: right 0.4s;
+  }
+}
+/*
+*
+Конструкция hsla(0, 0%, 10%, 0.3) представляет собой цвет в формате HSLA.
+
+Давайте разберем каждую часть:
+
+hsla: Это функция для определения цвета в формате HSLA. HSLA означает Hue (оттенок), Saturation (насыщенность), Lightness (яркость) и Alpha (прозрачность).
+0: Значение оттенка (hue) в диапазоне от 0 до 360 градусов. В данном случае, 0 означает красный оттенок.
+0%: Значение насыщенности (saturation) в диапазоне от 0% до 100%. Здесь 0% означает абсолютную насыщенность, что в данном случае означает отсутствие цвета.
+10%: Значение яркости (lightness) в диапазоне от 0% до 100%. Здесь 10% обозначает достаточно темный цвет.
+0.3: Значение альфа-канала (alpha), который определяет прозрачность цвета. Значение альфа может быть от 0 (полностью прозрачный) до 1 (полностью непрозрачный). Здесь 0.3 означает, что цвет частично прозрачен, пропуская 30% фона сквозь себя.
+Таким образом, hsla(0, 0%, 10%, 0.3) определяет темно-красный цвет с низкой насыщенностью и низкой яркостью, который частично прозрачен (30% непрозрачности). Этот цвет может использоваться, например, как фоновый цвет элемента, чтобы добавить некоторую прозрачность и создать эффект наложения на фоновое изображение или цвет.
+
+*
+Код backdrop-filter: blur(24px); используется для применения размытия к заднему плану (backdrop) элемента.
+
+Давайте разберем его:
+
+backdrop-filter: Это CSS свойство, которое применяет эффект фильтрации к заднему плану элемента. Оно позволяет применять различные фильтры, такие как размытие, наложение цветов и другие, к заднему плану элемента, включая его фон и содержимое, расположенное позади элемента.
+blur(24px): Это функция размытия. В данном случае, указан параметр 24px, что означает размытие заднего плана на 24 пикселя. Это создает эффект размытости, при котором содержимое заднего плана становится менее четким.
+Таким образом, backdrop-filter: blur(24px); означает, что задний план элемента будет размыт на 24 пикселя, создавая эффект мягкого размытия содержимого, расположенного позади этого элемента. Это может быть полезно для создания эффектов стекла или акцентирования внимания на переднем плане элемента.
+*/
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 48px; /* 3rem */
+}
+
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+  transition: color 0.4s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__close {
+  position: absolute;
+  top: 16px; /* 1rem */
+  right: 24px; /* 1.5rem */
+}
+
+/* Show menu */
+
+.show-menu {
+  right: 0;
+}
+
+/* Add blur to header */
+
+.blur-header {
+  background-color: transparent;
+}
+
+.blur-header::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 10%, 0.3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px); /* For safari */
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Active link */
+
+/*=============== HOME ===============*/
+
+.home {
+  background-color: var(--container-color);
+}
+
+.home__container {
+  padding-top: 32px; /* 2rem */
+  row-gap: 40px; /* 2.5rem */
+}
+
+.home__content {
+  display: grid;
+  row-gap: 32px;
+}
+
+.home__data {
+  text-align: center;
+}
+
+.home__subtitle,
+.home__education {
+  font-size: var(--bigger-font-size);
+}
+
+.home__title {
+  color: var(--first-color);
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.home__description {
+  margin-block: 16px 24px; /* 1rem 1.5rem */
+}
+
+.home__social {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px; /* 1.25rem */
+}
+
+.home__social-link {
+  /* display: flex; */
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  /* background-color: var(--first-color-alt); */
+  background: transparent;
+  border: 2px solid var(--first-color); /* 2px solid #00abf0;  var(--title-color) */
+  border-radius: 50%;
+  padding: 8px; /* 0.5rem */
+  color: var(--first-color); /* #00abf0; var(--title-color) */
+  font-size: 24px; /* 1.5rem */
+  z-index: 1;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+.home__social-link:hover {
+  color: #081b29; /* var(--bg-color) */
+  transform: translateY(-5px);
+}
+
+.home__social-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--first-color); /* #00abf0; var(--main-color) */
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.home__social-link:hover::before {
+  width: 100%;
+}
+
+.home__image {
+  justify-self: center;
+  filter: drop-shadow(0 12px 12px hsla(var(--hue), 100%, 40%, 0.2));
+}
+
+.home__img {
+  border-radius: 10px;
+}
+
+/*=============== BUTTON ===============*/
+
+.button {
+  display: inline-block;
+
+  background: var(--first-color);
+  color: var(--title-color); /* var(--bg-color) */
+
+  padding: 16px 28px;
+  font-weight: var(--font-medium);
+
+  border-radius: 8px;
+  transition: box-shadow 0.4s;
+}
+
+.button:hover {
+  box-shadow: 0 8px 24px hsla(var(--hue), 100%, 40%, 0.25);
+}
+
+/*=============== ABOUT ===============*/
+
+.about__container {
+  row-gap: 40px;
+}
+
+.about__data {
+  text-align: center;
+}
+
+.about__discription {
+  margin-bottom: 32px;
+}
+/*=============== SKILLS ===============*/
+
+.skills {
+  background-color: var(--container-color);
+}
+
+.skills__description {
+  margin-bottom: 32px;
+}
+
+.tab__taitles {
+  display: flex;
+  justify-content: space-between;
+  gap: 130px;
+}
+
+.about__link {
+  color: var(--first-color);
+}
+
+.skills__container {
+  padding-bottom: 32px;
+  row-gap: 56px;
+}
+
+.skills__data {
+  text-align: center;
+}
+
+.about__item:not(:last-child) {
+  margin: 10px 0;
+}
+/*=============== SERVICES ===============*/
+
+/*=============== PROJECTS ===============*/
+
+.projects__container {
+  row-gap: 32px;
+  justify-content: center;
+  padding-block: 16px;
+}
+
+.projects__card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.projects__img {
+  width: 100%;
+  height: 100%;
+}
+
+.projects__modal {
+  position: absolute;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(var(--hue), 70%, 40%, 0.8) 120%
+  );
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); /* For safari */
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: bottom 0.4s;
+}
+
+.projects__subtitle,
+.projects__button {
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+}
+
+.projects__subtitle {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.projects__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 12px;
+}
+
+.projects__button {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  font-weight: var(--font-medium);
+}
+
+.projects__button i {
+  font-size: 20px;
+}
+
+.projects__card:hover .projects__modal {
+  bottom: 0;
+}
+
+/*=============== CONTACT ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== SCROLL BAR ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/* Show Scroll Up */
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
