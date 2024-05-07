@@ -42,6 +42,50 @@ window.addEventListener("scroll", blurlHeader);
 
 /*=============== EMAIL JS ===============*/
 
+const contactForm = document.getElementById("contact-form"),
+  contactMessage = document.getElementById("contact-message");
+const sendEmail = (e) => {
+  e.preventDefault();
+  emailjs
+    .sendForm(
+      // service - tamplateID - #form - pablicKey
+      "service_hd37r3f",
+      "template_x3orapm",
+      "#contact-form",
+      "cmwv7vsvWohwn-5Wf"
+    )
+    .then(
+      () => {
+        // Show sent massage
+        contactMessage.textContent = "Message sent successfully ✅";
+
+        // Remove message after five second
+        setTimeout(() => {
+          contactMessage.textContent = "";
+        }, 5000);
+
+        // Clear input fields
+        contactForm.reset();
+      },
+      () => {
+        // Show error message
+        contactMessage.textContent = "Message not sent (service error) ❌";
+      }
+    );
+};
+
+contactForm.addEventListener("submit", sendEmail);
+
+// these IDs from the previous steps
+emailjs.sendForm("contact_service", "contact_form", this).then(
+  () => {
+    console.log("SUCCESS!");
+  },
+  (error) => {
+    console.log("FAILED...", error);
+  }
+);
+
 /*=============== SHOW SCROLL UP ===============*/
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/

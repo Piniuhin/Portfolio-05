@@ -509,6 +509,42 @@ blur(24px): Это функция размытия. В данном случае
 
 /*=============== CONTACT ===============*/
 
+.contact__container {
+  padding-top: 16px;
+}
+
+.contact__form,
+.contact__group {
+  display: grid;
+  row-gap: 16px;
+}
+
+.contact__form {
+  position: relative;
+}
+
+.contact__input {
+  padding: 16px 20px;
+  border-radius: 8px;
+  background-color: var(--container-color);
+  color: var(--title-color);
+}
+
+.contact__input::placeholder {
+  color: var(--text-color);
+}
+
+.textarea {
+  height: 176px;
+  resize: none;
+  margin-bottom: 32px;
+}
+
+.contact__button {
+  justify-self: center;
+  cursor: pointer;
+}
+
 /*=============== FOOTER ===============*/
 
 /*=============== SCROLL BAR ===============*/
