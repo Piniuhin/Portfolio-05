@@ -545,7 +545,59 @@ blur(24px): Это функция размытия. В данном случае
   cursor: pointer;
 }
 
+.contact__message {
+  position: absolute;
+  left: 0;
+  bottom: 72px;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+}
+
 /*=============== FOOTER ===============*/
+
+.footer {
+  background-color: var(--container-color);
+  padding-block: 56px 32px;
+}
+
+.footer__title {
+  margin-bottom: 4px;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--title-color);
+}
+
+.logo span {
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+}
+
+.footer__container,
+.contact__address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__address {
+  font-style: normal;
+}
+
+.address__item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.address__link {
+  color: var(--text-color);
+}
 
 /*=============== SCROLL BAR ===============*/
 
