@@ -131,8 +131,17 @@ svg {
 }
 
 .section {
+  min-height: 100vh;
   padding-block: 5rem 2rem;
 }
+
+.section:nth-child(even) {
+  background: var(--container-color);
+}
+
+/* .section:nth-child(odd) {
+  background: var(--body-color);
+} */
 
 .section__title,
 .section__subtitle {
@@ -152,6 +161,10 @@ svg {
 }
 
 .section__subtitle span {
+  color: var(--first-color);
+}
+
+.subtitle {
   color: var(--first-color);
 }
 
@@ -232,7 +245,7 @@ blur(24px): Это функция размытия. В данном случае
 .nav__list {
   display: flex;
   flex-direction: column;
-  row-gap: 48px; /* 3rem */
+  row-gap: 48px;
 }
 
 .nav__link {
@@ -247,8 +260,8 @@ blur(24px): Это функция размытия. В данном случае
 
 .nav__close {
   position: absolute;
-  top: 16px; /* 1rem */
-  right: 24px; /* 1.5rem */
+  top: 16px;
+  right: 24px;
 }
 
 /* Show menu */
@@ -285,12 +298,12 @@ blur(24px): Это функция размытия. В данном случае
 /*=============== HOME ===============*/
 
 .home {
-  background-color: var(--container-color);
+  /* background-color: var(--container-color); */
 }
 
 .home__container {
-  padding-top: 32px; /* 2rem */
-  row-gap: 40px; /* 2.5rem */
+  padding-top: 32px;
+  row-gap: 40px;
 }
 
 .home__content {
@@ -308,23 +321,21 @@ blur(24px): Это функция размытия. В данном случае
 }
 
 .home__title {
-  color: var(--first-color);
   font-size: var(--biggest-font-size);
   font-weight: var(--font-semi-bold);
 }
 
 .home__description {
-  margin-block: 16px 24px; /* 1rem 1.5rem */
+  margin-block: 16px 24px;
 }
 
 .home__social {
   display: flex;
   justify-content: center;
-  column-gap: 20px; /* 1.25rem */
+  column-gap: 20px;
 }
 
 .home__social-link {
-  /* display: flex; */
   position: relative;
   display: inline-flex;
   justify-content: center;
@@ -333,20 +344,19 @@ blur(24px): Это функция размытия. В данном случае
   width: 40px;
   height: 40px;
   background: transparent;
-  /* background-color: var(--first-color-alt); */
   background: transparent;
-  border: 2px solid var(--first-color); /* 2px solid #00abf0;  var(--title-color) */
+  border: 2px solid var(--first-color);
   border-radius: 50%;
-  padding: 8px; /* 0.5rem */
-  color: var(--first-color); /* #00abf0; var(--title-color) */
-  font-size: 24px; /* 1.5rem */
+  padding: 8px;
+  color: var(--first-color);
+  font-size: 24px;
   z-index: 1;
   overflow: hidden;
   transition: transform 0.5s;
 }
 
 .home__social-link:hover {
-  color: #081b29; /* var(--bg-color) */
+  color: var(--bg-color);
   transform: translateY(-5px);
 }
 
@@ -357,7 +367,7 @@ blur(24px): Это функция размытия. В данном случае
   left: 0;
   width: 0;
   height: 100%;
-  background: var(--first-color); /* #00abf0; var(--main-color) */
+  background: var(--first-color);
   z-index: -1;
   transition: 0.5s;
 }
@@ -368,6 +378,7 @@ blur(24px): Это функция размытия. В данном случае
 
 .home__image {
   justify-self: center;
+
   filter: drop-shadow(0 12px 12px hsla(var(--hue), 100%, 40%, 0.2));
 }
 
@@ -400,6 +411,10 @@ blur(24px): Это функция размытия. В данном случае
   row-gap: 40px;
 }
 
+.about__title {
+  font-size: var(--h2-font-size);
+}
+
 .about__data {
   text-align: center;
 }
@@ -408,10 +423,6 @@ blur(24px): Это функция размытия. В данном случае
   margin-bottom: 32px;
 }
 /*=============== SKILLS ===============*/
-
-.skills {
-  background-color: var(--container-color);
-}
 
 .skills__container {
   padding-bottom: 32px;
@@ -565,6 +576,8 @@ blur(24px): Это функция размытия. В данном случае
 }
 
 .footer__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-semi-bold);
   margin-bottom: 4px;
 }
 
@@ -573,17 +586,17 @@ blur(24px): Это функция размытия. В данном случае
   color: var(--title-color);
 }
 
-.logo span {
-  font-weight: var(--font-semi-bold);
-  color: var(--first-color);
+.footer__container {
+  row-gap: 32px;
+  text-align: center;
 }
 
-.footer__container,
-.contact__address {
+/* .footer__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  text-align: center;
+} */
 
 .contact__address {
   font-style: normal;
@@ -750,5 +763,65 @@ blur(24px): Это функция размытия. В данном случае
     grid-template-columns: 455px 550px;
     column-gap: 112px;
     padding-block: 32px 48px;
+  }
+
+  .home__content {
+    row-gap: 72px;
+  }
+
+  .home__description {
+    margin-block: 24px 40px;
+  }
+
+  .home__social {
+    column-gap: 24px;
+  }
+
+  .about__container {
+    grid-template-columns: 550px 520px;
+    column-gap: 160px;
+    padding-bottom: 16px;
+  }
+
+  .about__discription {
+    margin-bottom: 48px;
+  }
+
+  .skills__container {
+    grid-template-columns: 400px 550px;
+    column-gap: 160px;
+  }
+
+  .skills__description {
+    padding-bottom: 48px;
+  }
+
+  .skills__content {
+    column-gap: 128px;
+  }
+
+  .about__item {
+    font-size: var(--h3-font-size);
+  }
+
+  .projects__container {
+    grid-template-columns: repeat(4, 260px);
+  }
+
+  .projects__button {
+    font-size: var(--normal-font-size);
+  }
+
+  .contact__container {
+    grid-template-columns: 500px;
+  }
+
+  .contact__form {
+    row-gap: 24px;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
   }
 }
