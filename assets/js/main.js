@@ -42,13 +42,13 @@ window.addEventListener("scroll", blurlHeader);
 
 /*=============== EMAIL JS ===============*/
 
-// const contactForm = document.getElementById("contact-form"),
-//   contactMessage = document.getElementById("contact-message");
-
 const contactForm = document.getElementById("contact-form"),
-  contactMessage = document.getElementById("contact-message"),
-  contactName = document.getElementById("user-name"),
-  contactEmail = document.getElementById("user-email");
+  contactMessage = document.getElementById("contact-message");
+
+// const contactForm = document.getElementById("contact-form"),
+//   contactMessage = document.getElementById("contact-message"),
+//   contactName = document.getElementById("user-name"),
+//   contactEmail = document.getElementById("user-email");
 
 const sendEmail = (e) => {
   e.preventDefault();
