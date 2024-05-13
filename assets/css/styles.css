@@ -161,10 +161,6 @@ svg {
   margin-bottom: 0.25rem;
 }
 
-.section__subtitle span {
-  color: var(--first-color);
-}
-
 .subtitle {
   color: var(--first-color);
 }
