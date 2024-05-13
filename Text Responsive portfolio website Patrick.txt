@@ -1,6 +1,6 @@
 ========== HEADER ==========
 .nav__logo
-Patrick <span>Moz</span>
+Alexander <span>Piniuhin</span>
 
 .nav__link
 Home - About - Services - Projects - Contact
@@ -11,7 +11,7 @@ Home - About - Services - Projects - Contact
 Hello, <span>I’m</span>
 
 .home__title
-Patrick Moz
+Alexander Piniuhin
 
 .home__education
 Front-end Developer
@@ -24,12 +24,12 @@ in quality work.
 I really enjoy creating projects that make everyday life and business easier, more productive and more convenient. I am looking for a permanent job in a company that strives to be a leader.
 
 .button
-Let's Talk
+Download C.V
 
 .home__social
-https://github.com/
-https://dribbble.com/
-https://www.linkedin.com/
+https://github.com/Piniuhin
+https://www.linkedin.com/in/alexander-piniuhin-33193a229/
+https://www.instagram.com/alexanderpinyugin/?igsh=MWZldXA1MnB5ZXJ2Zw%3D%3D
 
 .home__social-icon (clip-path)
 polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)
@@ -66,39 +66,19 @@ to develop the projects for you.
 .button
 See Projects
 
-.skills__item
+.about__item
 HTML & CSS
 JavaScript
-Bootstrap
-React
+BEM
+Webpack
 
 Git & GitHub
-Figma
-Sketch
+Responsive
+Parcel
 
 
 ========== SERVICES ==========
-.section__subtitle
-My <span>Services
 
-.section__title
-What I Do
-
-.services__title .services__description
-Web Developer
-Development of custom web pages. 
-Using current technologies and 
-libraries of the labor field.
-
-UI/UX Designer
-I offer design of web interfaces and 
-mobile applications, design made in 
-figma, adobe xd and sketch.
-
-Graphic Design
-I make designs at the client's request, 
-banner design, posters, digital 
-designs among others.
 
 
 ========== PROJECTS ==========
@@ -150,11 +130,11 @@ Before proceeding, I recommend creating your EmailJs account(https://www.emailjs
 
 * Copy this code into your (Email Template)
 
-Names: {{user_name}}
+Names: {{to_name}}
 
-Email: {{user_email}}
+Email: {{from_name}}
 
-Project: {{user_project}}
+Project: {{message}}
 
 Best wishes,
 EmailJS team
@@ -162,18 +142,18 @@ EmailJS team
 
 ========== FOOTER ==========
 .footer__title
-Patrick <span>Moz</span>
+Alexander <span>Piniuhin</span>
 
 .footer__education
 Front-end Developer  
 
 .footer__social-link
-https://www.facebook.com/
-https://www.instagram.com/
-https://twitter.com/
+https://github.com/Piniuhin
+https://www.linkedin.com/in/alexander-piniuhin-33193a229/
+https://www.instagram.com/alexanderpinyugin/?igsh=MWZldXA1MnB5ZXJ2Zw%3D%3D
 
 .footer__copy
-&#169; Copyright Bedimcode. All rights reserved
+&copy; 2024 copyright all rights reserved
 
 .footer__social-icon (clip-path)
 polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)

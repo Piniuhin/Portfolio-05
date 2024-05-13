@@ -214,7 +214,7 @@ svg {
     background-color: hsla(0, 0%, 10%, 0.3);
     width: 75%;
     height: 100%;
-    padding: 72px 0 0 48px; /* 4.5rem 0 0 3rem */
+    padding: 72px 0 0 48px;
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px); /* For safari */
     transition: right 0.4s;
@@ -297,10 +297,6 @@ blur(24px): Это функция размытия. В данном случае
 }
 
 /*=============== HOME ===============*/
-
-.home {
-  /* background-color: var(--container-color); */
-}
 
 .home__container {
   padding-top: 32px;
